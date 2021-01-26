@@ -32,5 +32,5 @@ def test_netmiko_args(first_router_from_devices_yaml):
     output_with_command = r1.send_command(command, strip_command=False)
     assert command in output_with_command
     output_without_command = r1.send_command(command, strip_command=True)
-    r1.disconnect()
     assert command not in output_without_command
+    r1.disconnect()

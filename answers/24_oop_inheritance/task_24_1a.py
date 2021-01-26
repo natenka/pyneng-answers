@@ -3,12 +3,12 @@
 """
 Задание 24.1a
 
-Дополнить класс CiscoSSH из задания 24.1.
+Скопировать и дополнить класс CiscoSSH из задания 24.1.
 
-Перед подключением по SSH необходимо проверить если ли в словаре
-с параметрами подключения такие параметры: username, password, secret.
-Если нет, запросить их у пользователя, а затем выполнять подключение.
-Если параметры есть, сразу выполнить подключение.
+Перед подключением по SSH необходимо проверить если ли в словаре с параметрами
+подключения такие параметры: username, password, secret.
+Если какого-то параметра нет, запросить значение у пользователя, а затем выполнять
+подключение. Если все параметры есть, выполнить подключение.
 
 In [1]: from task_24_1a import CiscoSSH
 
@@ -23,7 +23,14 @@ In [3]: r1 = CiscoSSH(**device_params)
 Введите пароль для режима enable: cisco
 
 In [4]: r1.send_show_command('sh ip int br')
-Out[4]: 'Interface                  IP-Address      OK? Method Status                Protocol\nEthernet0/0                192.168.100.1   YES NVRAM  up                    up      \nEthernet0/1                192.168.200.1   YES NVRAM  up                    up      \nEthernet0/2                190.16.200.1    YES NVRAM  up                    up      \nEthernet0/3                192.168.230.1   YES NVRAM  up                    up      \nEthernet0/3.100            10.100.0.1      YES NVRAM  up                    up      \nEthernet0/3.200            10.200.0.1      YES NVRAM  up                    up      \nEthernet0/3.300            10.30.0.1       YES NVRAM  up                    up      '
+Out[4]: 'Interface                  IP-Address      OK? Method Status                Protocol
+Ethernet0/0                192.168.100.1   YES NVRAM  up                    up      
+Ethernet0/1                192.168.200.1   YES NVRAM  up                    up      
+Ethernet0/2                190.16.200.1    YES NVRAM  up                    up      
+Ethernet0/3                192.168.230.1   YES NVRAM  up                    up      
+Ethernet0/3.100            10.100.0.1      YES NVRAM  up                    up      
+Ethernet0/3.200            10.200.0.1      YES NVRAM  up                    up      
+Ethernet0/3.300            10.30.0.1       YES NVRAM  up                    up      '
 
 """
 from base_connect_class import BaseSSH
