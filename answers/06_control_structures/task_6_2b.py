@@ -4,8 +4,7 @@
 
 Сделать копию скрипта задания 6.2a.
 
-Дополнить скрипт:
-Если адрес был введен неправильно, запросить адрес снова.
+Дополнить скрипт: Если адрес был введен неправильно, запросить адрес снова.
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
@@ -21,7 +20,7 @@ while True:
             break
     if correct_ip:
         break
-    print("Incorrect IPv4 address")
+    print("Неправильный IP-адрес")
 
 first_octet = int(octets[0])
 
@@ -48,7 +47,7 @@ while True:
 
     if valid_ip:
         break
-    print("Incorrect IPv4 address")
+    print("Неправильный IP-адрес")
 
 if 1 <= int(octets[0]) <= 223:
     print("unicast")
