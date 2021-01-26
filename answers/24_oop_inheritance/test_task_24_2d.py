@@ -21,9 +21,9 @@ def test_class_created():
 
 def test_class_inheritance(first_router_from_devices_yaml):
     r1 = task_24_2d.MyNetmiko(**first_router_from_devices_yaml)
-    r1.disconnect()
     assert isinstance(r1, CiscoIosSSH), "Класс MyNetmiko должен наследовать CiscoIosSSH"
     check_attr_or_method(r1, method="send_config_set")
+    r1.disconnect()
 
 
 @pytest.mark.parametrize(

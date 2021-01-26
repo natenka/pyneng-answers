@@ -2,37 +2,28 @@
 """
 Задание 7.2b
 
-Дополнить скрипт из задания 7.2a:
-* вместо вывода на стандартный поток вывода,
-  скрипт должен записать полученные строки в файл config_sw1_cleared.txt
+Переделать скрипт из задания 7.2a: вместо вывода на стандартный поток вывода,
+скрипт должен записать полученные строки в файл
 
-При этом, должны быть отфильтрованы строки, которые содержатся в списке ignore.
-Строки, которые начинаются на '!' отфильтровывать не нужно.
+Имена файлов нужно передавать как аргументы скрипту:
+ * имя исходного файла конфигурации
+ * имя итогового файла конфигурации
+
+При этом, должны быть отфильтрованы строки, которые содержатся в списке ignore
+и строки, которые начинаются на '!'.
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
 from sys import argv
 
-ignore = ["duplex", "alias", "Current configuration"]
+ignore = ["duplex", "alias", "configuration"]
 
-src_file, dst_file = argv[1], "config_sw1_cleared.txt"
+src_file, dst_file = argv[1], argv[2]
 
 with open(src_file) as src, open(dst_file, 'w') as dst:
     for line in src:
-        skip_line = False
-        for ignore_word in ignore:
-            if ignore_word in line:
-                skip_line = True
-                break
-        if not line.startswith("!") and not skip_line:
-            dst.write(line)
-
-# вариант решения  с for/else
-with open(src_file) as src, open(dst_file, 'w') as dst:
-    for line in src:
-        for ignore_word in ignore:
-            if line.startswith("!") or ignore_word in line:
-                break
-        else:
+        words = line.split()
+        words_intersect = set(words) & set(ignore)
+        if not line.startswith("!") and not words_intersect:
             dst.write(line)

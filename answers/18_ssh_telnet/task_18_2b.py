@@ -7,9 +7,9 @@
 При выполнении каждой команды, скрипт должен проверять результат на такие ошибки:
  * Invalid input detected, Incomplete command, Ambiguous command
 
-Если при выполнении какой-то из команд возникла ошибка,
-функция должна выводить сообщение на стандартный поток вывода с информацией
-о том, какая ошибка возникла, при выполнении какой команды и на каком устройстве, например:
+Если при выполнении какой-то из команд возникла ошибка, функция должна выводить
+сообщение на стандартный поток вывода с информацией о том, какая ошибка возникла,
+при выполнении какой команды и на каком устройстве, например:
 Команда "logging" выполнилась с ошибкой "Incomplete command." на устройстве 192.168.100.1
 
 Ошибки должны выводиться всегда, независимо от значения параметра log.
@@ -45,31 +45,52 @@ In [17]: result = send_config_commands(r1, commands)
 Команда "a" выполнилась с ошибкой "Ambiguous command:  "a"" на устройстве 192.168.100.1
 
 In [18]: pprint(result, width=120)
-({'ip http server': 'config term\n'
-                    'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-                    'R1(config)#ip http server\n'
+({'ip http server': 'config term
+'
+                    'Enter configuration commands, one per line.  End with CNTL/Z.
+'
+                    'R1(config)#ip http server
+'
                     'R1(config)#',
-  'logging buffered 20010': 'config term\n'
-                            'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-                            'R1(config)#logging buffered 20010\n'
+  'logging buffered 20010': 'config term
+'
+                            'Enter configuration commands, one per line.  End with CNTL/Z.
+'
+                            'R1(config)#logging buffered 20010
+'
                             'R1(config)#'},
- {'a': 'config term\n'
-       'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-       'R1(config)#a\n'
-       '% Ambiguous command:  "a"\n'
+ {'a': 'config term
+'
+       'Enter configuration commands, one per line.  End with CNTL/Z.
+'
+       'R1(config)#a
+'
+       '% Ambiguous command:  "a"
+'
        'R1(config)#',
-  'logging': 'config term\n'
-             'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-             'R1(config)#logging\n'
-             '% Incomplete command.\n'
-             '\n'
+  'logging': 'config term
+'
+             'Enter configuration commands, one per line.  End with CNTL/Z.
+'
+             'R1(config)#logging
+'
+             '% Incomplete command.
+'
+             '
+'
              'R1(config)#',
-  'logging 0255.255.1': 'config term\n'
-                        'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-                        'R1(config)#logging 0255.255.1\n'
-                        '                   ^\n'
-                        "% Invalid input detected at '^' marker.\n"
-                        '\n'
+  'logging 0255.255.1': 'config term
+'
+                        'Enter configuration commands, one per line.  End with CNTL/Z.
+'
+                        'R1(config)#logging 0255.255.1
+'
+                        '                   ^
+'
+                        "% Invalid input detected at '^' marker.
+"
+                        '
+'
                         'R1(config)#'})
 
 In [19]: good, bad = result

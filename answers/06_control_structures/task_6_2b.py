@@ -4,8 +4,7 @@
 
 Сделать копию скрипта задания 6.2a.
 
-Дополнить скрипт:
-Если адрес был введен неправильно, запросить адрес снова.
+Дополнить скрипт: Если адрес был введен неправильно, запросить адрес снова.
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
@@ -15,13 +14,16 @@ while True:
     octets = ip_address.split(".")
     correct_ip = True
 
-    for octet in octets:
-        if not (octet.isdigit() and int(octet) in range(256)):
-            correct_ip = False
-            break
+    if len(octets) == 4:
+        for octet in octets:
+            if not (octet.isdigit() and int(octet) in range(256)):
+                correct_ip = False
+                break
+    else:
+        correct_ip = False
     if correct_ip:
         break
-    print("Incorrect IPv4 address")
+    print("Неправильный IP-адрес")
 
 first_octet = int(octets[0])
 
@@ -30,7 +32,7 @@ if 1 <= first_octet <= 223:
 elif 224 <= first_octet <= 239:
     print("multicast")
 elif ip_address == "0.0.0.0":
-    print("unassigend")
+    print("unassigned")
 elif ip_address == "255.255.255.255":
     print("local broadcast")
 else:
@@ -48,7 +50,7 @@ while True:
 
     if valid_ip:
         break
-    print("Incorrect IPv4 address")
+    print("Неправильный IP-адрес")
 
 if 1 <= int(octets[0]) <= 223:
     print("unicast")

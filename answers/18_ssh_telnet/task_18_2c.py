@@ -4,11 +4,12 @@
 
 Скопировать функцию send_config_commands из задания 18.2b и переделать ее таким образом:
 
-Если при выполнении команды возникла ошибка,
-спросить пользователя надо ли выполнять остальные команды.
+Если при выполнении команды возникла ошибка, спросить пользователя надо ли выполнять
+остальные команды.
 
 Варианты ответа [y]/n:
-* y - выполнять остальные команды. Это значение по умолчанию, поэтому нажатие любой комбинации воспринимается как y
+* y - выполнять остальные команды. Это значение по умолчанию,
+  поэтому нажатие любой комбинации воспринимается как y
 * n или no - не выполнять остальные команды
 
 Функция send_config_commands по-прежнему должна возвращать кортеж из двух словарей:
@@ -32,19 +33,30 @@ In [11]: result = send_config_commands(r1, commands)
 
 In [12]: pprint(result)
 ({},
- {'logging': 'config term\n'
-             'Enter configuration commands, one per line.  End with CNTL/Z.\n'
-             'R1(config)#logging\n'
-             '% Incomplete command.\n'
-             '\n'
+ {'logging': 'config term
+'
+             'Enter configuration commands, one per line.  End with CNTL/Z.
+'
+             'R1(config)#logging
+'
+             '% Incomplete command.
+'
+             '
+'
              'R1(config)#',
-  'logging 0255.255.1': 'config term\n'
+  'logging 0255.255.1': 'config term
+'
                         'Enter configuration commands, one per line.  End with '
-                        'CNTL/Z.\n'
-                        'R1(config)#logging 0255.255.1\n'
-                        '                   ^\n'
-                        "% Invalid input detected at '^' marker.\n"
-                        '\n'
+                        'CNTL/Z.
+'
+                        'R1(config)#logging 0255.255.1
+'
+                        '                   ^
+'
+                        "% Invalid input detected at '^' marker.
+"
+                        '
+'
                         'R1(config)#'})
 
 """
