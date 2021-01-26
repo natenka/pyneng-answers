@@ -61,8 +61,10 @@ commands = ["logging 10.255.255.1", "logging buffered 20010", "no logging consol
 command = "sh ip int br"
 
 
-def send_commands(device, config=None, show=None):
-    if show:
+def send_commands(device, *, config=None, show=None):
+    if show and config:
+        raise ValueError("Можно передавать только один из аргументов show/config")
+    elif show:
         return send_show_command(device, show)
     elif config:
         return send_config_commands(device, config)
