@@ -5,14 +5,16 @@
 Создать функцию parse_output_to_dict.
 
 Параметры функции:
-* template - имя файла, в котором находится шаблон TextFSM (templates/sh_ip_int_br.template)
+* template - имя файла, в котором находится шаблон TextFSM.
+  Например, templates/sh_ip_int_br.template
 * command_output - вывод соответствующей команды show (строка)
 
 Функция должна возвращать список словарей:
 * ключи - имена переменных в шаблоне TextFSM
 * значения - части вывода, которые соответствуют переменным
 
-Проверить работу функции на выводе команды output/sh_ip_int_br.txt и шаблоне templates/sh_ip_int_br.template.
+Проверить работу функции на выводе команды output/sh_ip_int_br.txt
+и шаблоне templates/sh_ip_int_br.template.
 """
 from pprint import pprint
 import textfsm
