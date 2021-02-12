@@ -75,7 +75,7 @@ for intf, value in trunk.items():
 
 
 # этот вариант использует словарь, вместо if/else
-trunk_actions = {"add": "add", "del": "remove", "only": ""}
+trunk_actions = {"add": " add", "del": " remove", "only": ""}
 
 for intf, value in trunk.items():
     print(f"interface FastEthernet {intf}")
@@ -84,7 +84,7 @@ for intf, value in trunk.items():
         if command.endswith("allowed vlan"):
             action = value[0]
             vlans = ",".join(value[1:])
-            print(f" {command} {trunk_actions[action]} {vlans}")
+            print(f" {command}{trunk_actions[action]} {vlans}")
         else:
             print(f" {command}")
 
