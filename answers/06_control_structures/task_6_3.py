@@ -90,12 +90,14 @@ for intf, value in trunk.items():
 
 # вариант с заменой
 for intf, allowed in trunk.items():
+    action = (
+        allowed[0].replace("only", "").replace("del", " remove").replace("add", " add")
+    )
+    vlans = ",".join(allowed[1:])
+
     print(f"interface FastEthernet {intf}")
     for command in trunk_template:
         if command.endswith("allowed vlan"):
-            action = allowed[0].replace("only", "").replace("del", "remove")
-            vlans = ",".join(allowed[1:])
-            print(f" {command} {action} {vlans}")
+            print(f" {command}{action} {vlans}")
         else:
             print(f" {command}")
-
