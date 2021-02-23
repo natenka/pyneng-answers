@@ -48,7 +48,11 @@ def get_free_tunnel_number(src, dst):
     nums = [int(num) for num in re.findall(r"Tunnel(\d+)", src + dst)]
     if not nums:
         return 0
-    return max(nums) + 1
+    diff = set(range(min(nums), max(nums) + 1)) - set(nums)
+    if diff:
+        return min(diff)
+    else:
+        return max(nums) + 1
 
 
 def configure_vpn(
