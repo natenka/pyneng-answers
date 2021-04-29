@@ -17,12 +17,14 @@ def get_data_by_key_value(db_name, key, value):
 
     print("\nИнформация об устройствах с такими параметрами:", key, value)
     print(tabulate(result))
+    connection.close()
 
 
 def get_all_data(db_name):
     print("В таблице dhcp такие записи:")
     connection = sqlite3.connect(db_filename)
     print(tabulate(connection.execute("select * from dhcp")))
+    connection.close()
 
 
 def parse_args(db_name, args):
