@@ -25,7 +25,7 @@ def parse_output_to_dict(template, command_output):
         parser = textfsm.TextFSM(tmpl)
         header = parser.header
         result = parser.ParseText(command_output)
-    return [dict(zip(parser.header, line)) for line in result]
+    return [dict(zip(header, line)) for line in result]
 
 
 if __name__ == "__main__":
