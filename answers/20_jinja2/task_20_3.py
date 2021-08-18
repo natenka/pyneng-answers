@@ -57,7 +57,7 @@ interface Fa0/1.200
 """
 
 import yaml
-from task_21_1 import generate_config
+from task_20_1 import generate_config
 
 if __name__ == "__main__":
     with open("data_files/ospf.yml") as f:
