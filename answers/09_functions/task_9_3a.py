@@ -31,7 +31,7 @@ def get_int_vlan_map(config_filename):
     trunk_port_dict = {}
     with open(config_filename) as f:
         for line in f:
-            if "interface FastEthernet" in line:
+            if line.startswith("interface FastEthernet"):
                 current_interface = line.split()[-1]
                 # Сразу указываем, что интерфейсу
                 # соответствует 1 влан в access_port_dict
