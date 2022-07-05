@@ -78,10 +78,11 @@ class CiscoTelnet:
         if isinstance(commands, str):
             commands = [commands]
         commands = ["conf t", *commands, "end"]
+        output = ""
         for command in commands:
             self._write_line(command)
-            time.sleep(1)
-        return self.telnet.read_very_eager().decode("ascii")
+            output += self.telnet.read_until(b"#").decode("ascii")
+        return output
 
 
 if __name__ == "__main__":
