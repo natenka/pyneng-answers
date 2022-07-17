@@ -23,7 +23,9 @@ def ping_ip_addresses(ip_addresses):
 
     for ip in ip_addresses:
         result = subprocess.run(
-            ["ping", "-c", "3", ip], stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            ["ping", "-c", "3", ip],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
         if result.returncode == 0:
             reachable.append(ip)
