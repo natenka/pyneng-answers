@@ -49,5 +49,5 @@ def convert_ranges_to_ip_list(ip_addresses):
             for ip in range(int(start_ip), int(stop_ip) + 1):
                 ip_list.append(str(ipaddress.ip_address(ip)))
         else:
-            ip_list.append(str(ip_address))
+            ip_list.append(ip_address)
     return ip_list
