@@ -46,7 +46,7 @@ R1#'
 
 Подсказка:
 Метод _write_line нужен для того чтобы можно было сократить строку:
-self.telnet.write(line.encode("ascii") + b"
+self.telnet.write(line.encode("utf-8") + b"
 ")
 
 до такой:
@@ -75,12 +75,11 @@ class CiscoTelnet:
         self.telnet.read_very_eager()
 
     def _write_line(self, line):
-        self.telnet.write(line.encode("ascii") + b"\n")
+        self.telnet.write(line.encode("utf-8") + b"\n")
 
     def send_show_command(self, command):
         self._write_line(command)
-        time.sleep(1)
-        command_output = self.telnet.read_very_eager().decode("ascii")
+        command_output = self.telnet.read_until(b"#").decode("utf-8")
         return command_output
 
 

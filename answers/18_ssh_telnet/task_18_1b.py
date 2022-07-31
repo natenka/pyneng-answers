@@ -15,7 +15,7 @@
 import yaml
 import sys
 from netmiko import ConnectHandler
-from netmiko.ssh_exception import SSHException
+from netmiko.exceptions import SSHException
 
 
 def send_show_command(device, command):
