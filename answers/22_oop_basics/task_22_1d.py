@@ -73,7 +73,7 @@ class Topology:
             print("Такого устройства нет")
 
     def add_link(self, src, dest):
-        keys_and_values = self.topology.keys() | self.topology.values()
+        keys_and_values = set(self.topology.keys()) | set(self.topology.values())
         if self.topology.get(src) == dest or self.topology.get(dest) == src:
             print("Такое соединение существует")
         elif src in keys_and_values or dest in keys_and_values:

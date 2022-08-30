@@ -52,4 +52,5 @@ def write_dhcp_snooping_to_csv(filenames, output):
 
 if __name__ == "__main__":
     sh_dhcp_snoop_files = glob.glob("*_dhcp_snooping.txt")
+    print(sh_dhcp_snoop_files)
     write_dhcp_snooping_to_csv(sh_dhcp_snoop_files, "example_csv.csv")
